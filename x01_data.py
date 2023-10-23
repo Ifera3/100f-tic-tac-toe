@@ -5,6 +5,12 @@ Create a reliable method for storing and retrieving data for the game.
 """
 
 def read(square,board):
+  if board[square - 1] == 'X':
+    return 'X'
+  elif board[square - 1] == 'O':
+    return 'O'
+  else:
+    return None
   """
   This will do a lookup to find out what is in a particular square
   inputs: 
@@ -18,9 +24,13 @@ def read(square,board):
   the str value corresponding to the content of the square being checked
   None if the square is empty
   """
-  return None
 
 def write(square,board,player):
+  if read(square,board) != None:
+    return board
+  else:
+    board[square - 1] = player
+    return board
   """
   inputs:
   int square : the square you are checking for an X or an O
@@ -34,8 +44,6 @@ def write(square,board,player):
   empty.  If the square is not empty, it should not change the gameboard and
   should return the original, unchanged gameboard data
   """
-  
-  return None
 
 def mainRead():
   board = [ 0, 'X', 0, 'X', 'O', 'O', 0 , 0, 0]

@@ -9,13 +9,48 @@ return:
 str 'X' if X is the winner
 str 'O' if O is the winner
 None if there is no winner
+6 7 8
+3 4 5
+0 1 2
 """
+def center(board):
+  player = board[4]
+  a = (6,7,8,5)
+  b = (2,1,0,3)
+  for i in range(4):
+    if board[a[i]] == player and board[b[i]] == player:
+      print(player)
+      return player
+  else:
+    print('')
+    return None
+
+def strights(board):
+  player = board[6]
+  a = (3,7)
+  b = (0,8)
+  for i in range(2):
+    if board[a[i]] == player and board[b[i]]:
+      print(player)
+      return player
+  else:
+    print('')
+    player = board[2]
+    a = (1,5)
+    b = (0,8)
+    for i in range(2):
+      if board[a[i]] == player and board[b[i]]:
+        print(player)
+        return player
+    else:
+      print('')
+      return None
 
 def whoWins(board):
-  
-  
-  
-  return None
+  if center(board) != None:
+    return center(board)
+  else:
+    return strights(board)
 
 
 def main():

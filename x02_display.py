@@ -1,6 +1,7 @@
 #!python3
 
 def displayString(board):
+  countr = 0
   """
   function should create a string that can be displayed using a print command
   this function should have no actual print commands in it
@@ -21,7 +22,24 @@ def displayString(board):
   return value
   str the gameboard
   """
-  return None
+  boardToPrint = (6,7,8,3,4,5,0,1,2)
+  display = ""
+  for i in boardToPrint:
+    if board[i] == 0:
+      display = display + "-"
+    elif board[i] == "X":
+      display = display + "X"
+    elif board[i] == "O":
+      display = display + "O"
+    countr = countr + 1
+    if countr == 3 or countr == 6:
+      display = display + "\n"
+    elif i == 2:
+      continue
+    else:
+      display = display + " "
+  print(display, '\n=============')
+  return display
 
 def main():
   board = [ 'O' , 0 , 0 , 'X' , 'O' , 0 , 0 , 0 , 'X' ] 
