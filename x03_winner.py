@@ -18,11 +18,11 @@ def center(board):
   a = (6,7,8,5)
   b = (2,1,0,3)
   for i in range(4):
-    if board[a[i]] == player and board[b[i]] == player:
-      print(player)
+    if (board[a[i]] == player and board[b[i]] == player) and (board[a[i]] != 0 and board[b[i]] != 0):
+      #Sprint(player)
       return player
   else:
-    print('')
+    #print('')
     return None
 
 def strights(board):
@@ -30,20 +30,20 @@ def strights(board):
   a = (3,7)
   b = (0,8)
   for i in range(2):
-    if board[a[i]] == player and board[b[i]]:
-      print(player)
+    if (board[a[i]] == player and board[b[i]] == player) and (board[a[i]] != 0 and board[b[i]] != 0):
+      #print(player)
       return player
   else:
-    print('')
+    #print('')
     player = board[2]
     a = (1,5)
     b = (0,8)
     for i in range(2):
-      if board[a[i]] == player and board[b[i]]:
-        print(player)
+      if (board[a[i]] == player and board[b[i]] == player) and (board[a[i]] != 0 and board[b[i]] != 0):
+        #print(player)
         return player
     else:
-      print('')
+      #print('')
       return None
 
 def whoWins(board):

@@ -38,7 +38,7 @@ def displayString(board):
       continue
     else:
       display = display + " "
-  print(display, '\n=============')
+  print(f'=====\n{display}\n=====')
   return display
 
 def main():
