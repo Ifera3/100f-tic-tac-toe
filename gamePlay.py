@@ -6,6 +6,7 @@ playing tic-tac-toe
 import random, x01_data, x02_display, x03_winner
 
 def setupHuman():
+    print("Tic Tac Toe\n")
     human = input("X or O: ")
     inkorect = True
     while inkorect:
@@ -38,12 +39,14 @@ def firstOrSecond():
 def target(player,board):
     if player[1] == 1:
         x02_display.displayString(board)
-        humanTarget = int(input("Enter your target: "))
+        humanTarget = int(input("Enter your target number: "))
         inkorect = True
         while inkorect:
             if x01_data.read(humanTarget,board) != None:
-                print("Screar tacken")
-                humanTarget = int(input("Enter your new target: "))
+                print("7 8 9\n4 5 6\n1 2 3\n")
+                print("Square tacken")
+                x02_display.displayString(board)
+                humanTarget = int(input("Enter your new target number: "))
             else:
                 inkorect = False
         return humanTarget
@@ -65,19 +68,26 @@ def play(player1,player2):
     while winner == None:
         player1Target = target(player1,board)
         x01_data.write(player1Target,board,player1[0])
-        if  x03_winner.whoWins(board) != None:
+        if 0 not in board and  x03_winner.whoWins(board) == None:
+            winner == 0
+            break
+        elif  x03_winner.whoWins(board) != None:
             winner = x03_winner.whoWins(board)
             break
         player2Target = target(player2,board)
         x01_data.write(player2Target,board,player2[0])
-        winner = x03_winner.whoWins(board)
-        if 0 not in board:
+        if 0 not in board and  x03_winner.whoWins(board) == None:
             winner == 0
+        else:
+            winner = x03_winner.whoWins(board)
     x02_display.displayString(board)
+    print(winner)
     if winner == player1[0] and player1[1] == 1:
         print("You win!!")
     elif winner == player2[0] and player2[1] == 1:
         print("You win!!")
+    elif winner == None:
+        print("tie")
     else:
         print("You loss")
 
